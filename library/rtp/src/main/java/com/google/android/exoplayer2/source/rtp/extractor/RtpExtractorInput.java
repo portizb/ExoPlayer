@@ -201,7 +201,7 @@ public final class RtpExtractorInput implements ExtractorInput {
     }
 
     int bytesRead = dataSource.read(target, 0, RtpPacket.MAX_PACKET_SIZE);
-    while (bytesRead == 0) {
+    while (bytesRead == 0 || bytesRead == C.RESULT_NOTHING_READ) {
       bytesRead = dataSource.read(target, 0, RtpPacket.MAX_PACKET_SIZE);
     }
 
